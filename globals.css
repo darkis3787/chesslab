@@ -1,0 +1,67 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #0b0f14;
+  --panel: #111821;
+  --panel2: #151e29;
+  --border: #283443;
+  --text: #edf2f7;
+  --muted: #94a3b8;
+  --accent: #4ade80;
+  --danger: #f87171;
+}
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+.shell { min-height: 100vh; }
+.topbar {
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; border-bottom: 1px solid var(--border); background: #0d131b;
+}
+.brand { font-size: 24px; font-weight: 800; }
+.subtitle { color: var(--muted); font-size: 13px; margin-top: 3px; }
+.top-actions { display: flex; gap: 8px; }
+button, .file-button {
+  border: 1px solid var(--border); background: #18222e; color: var(--text);
+  border-radius: 7px; padding: 8px 12px;
+}
+button:hover, .file-button:hover { background: #202c3a; }
+.primary { background: #166534; border-color: #22c55e; }
+.workspace { display: grid; grid-template-columns: 330px minmax(480px, 1fr) 300px; min-height: calc(100vh - 72px); }
+.sidebar, .moves-panel { padding: 18px; background: var(--panel); border-right: 1px solid var(--border); }
+.moves-panel { border-right: 0; border-left: 1px solid var(--border); }
+.board-panel { padding: 22px; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.panel-heading { width: min(760px, 100%); display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px; }
+.panel-heading h1 { margin: 0 0 4px; font-size: 22px; }
+.panel-heading p { margin: 0; color: var(--muted); }
+.badge { padding: 5px 8px; border: 1px solid #365314; color: #bef264; border-radius: 999px; font-size: 11px; }
+textarea { width: 100%; height: 210px; resize: vertical; background: #0a0f15; color: #dbeafe; border: 1px solid var(--border); border-radius: 7px; padding: 10px; line-height: 1.45; }
+.label, h2, h3 { display: block; }
+h2 { margin: 0 0 14px; font-size: 17px; }
+h3 { margin: 22px 0 9px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.row { display: flex; gap: 8px; margin-top: 8px; }
+.file-button { display: inline-flex; align-items: center; }
+.file-button input { display: none; }
+.status { margin-top: 12px; padding: 9px; background: #0b1220; border: 1px solid var(--border); border-radius: 7px; color: #cbd5e1; font-size: 12px; }
+.tree { max-height: 52vh; overflow: auto; }
+.tree-node { display: flex; width: 100%; justify-content: space-between; text-align: left; border: 0; border-radius: 0; background: transparent; padding-top: 5px; padding-bottom: 5px; }
+.tree-node.selected { background: #1d4ed8; }
+.comment-dot { color: #60a5fa; margin-left: auto; padding-left: 8px; }
+.nag { color: #fbbf24; margin-left: 5px; }
+.muted { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.board-wrap { width: min(760px, 78vh, 100%); }
+.trainer-card { width: min(760px, 100%); margin-top: 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.eyebrow { font-size: 10px; letter-spacing: .12em; color: var(--muted); margin-bottom: 4px; }
+.fen { font-size: 11px; line-height: 1.5; padding: 10px; background: #0a0f15; border: 1px solid var(--border); border-radius: 7px; overflow-wrap: anywhere; }
+.continuations { display: flex; flex-wrap: wrap; gap: 6px; }
+.continuations button { padding: 5px 8px; }
+.roadmap { padding-left: 18px; color: #cbd5e1; line-height: 1.8; font-size: 13px; }
+@media (max-width: 1100px) {
+  .workspace { grid-template-columns: 280px minmax(420px, 1fr); }
+  .moves-panel { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--border); }
+}
+@media (max-width: 760px) {
+  .workspace { display: block; }
+  .sidebar, .moves-panel { border: 0; border-bottom: 1px solid var(--border); }
+  .board-panel { padding: 12px; }
+  .topbar { padding: 0 12px; }
+}
